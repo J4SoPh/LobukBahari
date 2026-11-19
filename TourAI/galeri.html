@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0E5A8A">
+<title>Galeri — Foto &amp; Suasana Wisata Desa Lobuk</title>
+<meta name="description" content="Galeri suasana Pantai Matahari, Desa Lobuk: fajar, senja, jembatan kayu, perahu nelayan, dan pesisir.">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="galeri">
+<a class="skip" href="#utama">Lewati ke konten utama</a>
+<div class="progres" id="progres" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="index.html"><img src="img/favicon.svg" alt="" width="36" height="36"><span>Lobuk<b>Bahari</b></span></a>
+    <button class="burger" id="burger" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    <nav class="menu" id="menu" aria-label="Navigasi utama">
+      <a href="index.html" data-nav="beranda">Beranda</a>
+      <a href="tentang.html" data-nav="tentang">Tentang Wisata</a>
+      <a href="galeri.html" data-nav="galeri">Galeri</a>
+      <a href="fasilitas.html" data-nav="fasilitas">Fasilitas &amp; Aktivitas</a>
+      <a href="lokasi.html" data-nav="lokasi">Lokasi</a>
+      <a href="produk.html" data-nav="produk">Produk Lokal</a>
+      <a href="kontak.html" data-nav="kontak">Kontak</a>
+      <button class="nav-chat" type="button" data-chat-open="true">💬 Chatbot</button>
+    </nav>
+  </div>
+</header>
+
+<main id="utama">
+  <section class="kepala">
+    <div class="kepala-art" data-scene="kepala" aria-hidden="true"></div>
+    <div class="kepala-tutup"></div>
+    <div class="kepala-isi">
+      <span class="mata">Galeri</span>
+      <h1>Foto &amp; suasana wisata</h1>
+      <p>Kumpulan suasana Pantai Matahari dan pesisir Desa Lobuk. Klik gambar untuk membuka tampilan besar, menelusuri dengan tombol panah, dan mengunduh berkasnya.</p>
+    </div>
+    <svg class="kepala-ombak" width="1440" height="48" viewBox="0 0 1440 48" preserveAspectRatio="none" aria-hidden="true"><path d="M0 30C160 6 320 6 480 22S800 42 960 24S1280 4 1440 18V48H0Z" fill="#FAF6EE"/></svg>
+  </section>
+
+  <section class="blok blok-pasir" style="padding-top:48px">
+    <div class="wrap">
+      <div class="catatan muncul" style="margin-bottom:24px" data-teks="catatanGaleri"></div>
+      <div class="saring" id="galeriSaring" role="group" aria-label="Saring galeri berdasarkan kategori"></div>
+      <div class="galeri-kisi" id="galeriKisi"></div>
+    </div>
+  </section>
+
+  <section class="blok blok-dingin">
+    <div class="wrap" style="max-width:820px">
+      <div class="muncul" style="text-align:center">
+        <span class="mata" style="justify-content:center">Kontribusi Foto</span>
+        <h2 style="margin:12px 0 12px">Punya dokumentasi asli Pantai Matahari?</h2>
+        <p>Foto asli belum banyak yang tersedia</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:22px">
+          <a class="btn btn-laut" href="kontak.html">📞 Hubungi pengelola</a>
+          <button class="btn btn-garis" type="button" data-chat-open="galeri foto">💬 Tanya soal galeri</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="cahaya" id="cahaya" role="dialog" aria-modal="true" aria-label="Tampilan besar gambar galeri">
+  <span class="c-hitung" id="cHitung"></span>
+  <button class="cahaya-tombol c-tutup" id="cTutup" type="button" aria-label="Tutup">✕</button>
+  <button class="cahaya-tombol c-prev" id="cPrev" type="button" aria-label="Gambar sebelumnya">‹</button>
+  <div class="cahaya-panggung" id="cPanggung"></div>
+  <div class="cahaya-ket" id="cKet"></div>
+  <button class="cahaya-tombol c-next" id="cNext" type="button" aria-label="Gambar berikutnya">›</button>
+  <button class="btn btn-utama btn-kecil c-unduh" id="cUnduh" type="button">⬇ Unduh gambar</button>
+</div>
+
+<footer class="kaki">
+  <div class="wrap">
+    <div class="kaki-kisi">
+      <div>
+        <a class="brand" href="index.html"><img src="img/favicon.svg" alt="" width="36" height="36"><span>Lobuk<b>Bahari</b></span></a>
+        <p data-teks="profil.deskripsiPendek"></p>
+      </div>
+      <div><h4>Halaman</h4><nav aria-label="Navigasi kaki"><a href="index.html">Beranda</a><a href="tentang.html">Tentang Wisata</a><a href="fasilitas.html">Fasilitas &amp; Aktivitas</a><a href="lokasi.html">Lokasi</a><a href="produk.html">Produk Lokal</a><a href="kontak.html">Kontak</a></nav></div>
+      <div><h4>Catatan</h4><p style="margin-top:0">Seluruh gambar saat ini berupa ilustrasi suasana buatan prototipe, bukan foto dokumentasi lokasi.</p></div>
+    </div>
+    <div class="kaki-bawah"><span>© <span id="tahun">2026</span> Sistem Informasi Wisata Bahari Desa Lobuk</span><span>Kecamatan Bluto · Kabupaten Sumenep</span></div>
+  </div>
+</footer>
+
+<button id="keatas" type="button" aria-label="Kembali ke atas">↑</button>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/chatbot.js"></script>
+</body>
+</html>

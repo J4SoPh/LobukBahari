@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0E5A8A">
+<title>Fasilitas &amp; Aktivitas — Wisata Bahari Desa Lobuk</title>
+<meta name="description" content="Fasilitas pengunjung beserta status verifikasi, aktivitas wisata bahari, perencana jadwal kunjungan, dan ekspor tabel jadwal ke PNG/JPG dengan kendali ukuran huruf.">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="fasilitas">
+<a class="skip" href="#utama">Lewati ke konten utama</a>
+<div class="progres" id="progres" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="index.html"><img src="img/favicon.svg" alt="" width="36" height="36"><span>Lobuk<b>Bahari</b></span></a>
+    <button class="burger" id="burger" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    <nav class="menu" id="menu" aria-label="Navigasi utama">
+      <a href="index.html" data-nav="beranda">Beranda</a>
+      <a href="tentang.html" data-nav="tentang">Tentang Wisata</a>
+      <a href="galeri.html" data-nav="galeri">Galeri</a>
+      <a href="fasilitas.html" data-nav="fasilitas">Fasilitas &amp; Aktivitas</a>
+      <a href="lokasi.html" data-nav="lokasi">Lokasi</a>
+      <a href="produk.html" data-nav="produk">Produk Lokal</a>
+      <a href="kontak.html" data-nav="kontak">Kontak</a>
+      <button class="nav-chat" type="button" data-chat-open="true">💬 Chatbot</button>
+    </nav>
+  </div>
+</header>
+
+<main id="utama">
+  <section class="kepala">
+    <div class="kepala-art" data-scene="kepala" aria-hidden="true"></div>
+    <div class="kepala-tutup"></div>
+    <div class="kepala-isi">
+      <span class="mata">Fasilitas &amp; Aktivitas</span>
+      <h1>Bekal sebelum berkunjung</h1>
+      <p>Kenali fasilitas yang perlu dikonfirmasi, pilih kegiatan sesuai jendela waktu terbaiknya, lalu simpan jadwal sebagai tabel dan gambar dengan ukuran huruf yang bisa Anda atur sendiri.</p>
+    </div>
+    <svg class="kepala-ombak" width="1440" height="48" viewBox="0 0 1440 48" preserveAspectRatio="none" aria-hidden="true"><path d="M0 30C160 6 320 6 480 22S800 42 960 24S1280 4 1440 18V48H0Z" fill="#FAF6EE"/></svg>
+  </section>
+
+  <section class="blok blok-pasir" style="padding-top:48px">
+    <div class="wrap">
+      <div class="tab" id="faTab" role="group" aria-label="Pilih tampilan">
+        <button type="button" class="aktif" data-tab="fasilitas">⛱️ Fasilitas (<span id="hitungFasilitas">8</span>)</button>
+        <button type="button" data-tab="aktivitas">🎯 Aktivitas (<span id="hitungAktivitas">8</span>)</button>
+      </div>
+      <div class="cari">
+        <span aria-hidden="true">🔍</span>
+        <input id="faCari" type="search" placeholder="Cari fasilitas atau aktivitas…" aria-label="Cari fasilitas atau aktivitas">
+      </div>
+      <div id="panelFasilitas">
+        <div class="catatan" style="margin-bottom:20px">Daftar berikut adalah butir yang <b>perlu diverifikasi</b> bersama pengelola, bukan klaim bahwa fasilitas tersebut sudah tersedia.</div>
+        <div class="kisi k3" id="fasilitasKisi"></div>
+      </div>
+      <div id="panelAktivitas" hidden>
+        <div class="catatan" style="margin-bottom:20px">Jendela waktu kegiatan adalah <b>waktu cahaya terbaik</b> di pesisir — bukan jam operasional resmi. Durasi adalah perkiraan untuk membantu menyusun rencana.</div>
+        <div class="kisi k3" id="aktivitasKisi"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blok blok-dingin" id="perencana">
+    <div class="wrap">
+      <div class="blok-kepala muncul">
+        <span class="mata">Perencana Kunjungan</span>
+        <h2>Jadwal yang menghormati waktu alam</h2>
+        <p>Matahari terbit tidak bisa dijadwalkan sore. Sistem menempatkan kegiatan terikat cahaya lebih dulu, lalu mengisi kegiatan lentur di celahnya — sehingga tidak ada agenda yang salah jam.</p>
+      </div>
+      <div class="perencana">
+        <div class="panel panel-gelap">
+          <h3 style="margin-bottom:6px">🧭 Panel rencana</h3>
+          <p style="font-size:12.5px;color:rgba(255,255,255,.62);margin-bottom:18px">Setiap perubahan langsung menyusun ulang jadwal dan gambar ekspor.</p>
+          <div class="grup">
+            <span class="lbl">Waktu kedatangan</span>
+            <div class="seg" id="segWaktu">
+              <button type="button" class="aktif" data-w="fajar">🌅 Fajar</button>
+              <button type="button" data-w="pagi">☀️ Pagi</button>
+              <button type="button" data-w="siang">🕐 Siang</button>
+              <button type="button" data-w="senja">🌇 Senja</button>
+            </div>
+          </div>
+          <div class="grup">
+            <span class="lbl">Alokasi durasi</span>
+            <div class="stepper">
+              <button type="button" id="jamKurang" aria-label="Kurangi durasi">−</button>
+              <b id="jamNilai">13 jam</b>
+              <button type="button" id="jamTambah" aria-label="Tambah durasi">+</button>
+            </div>
+            <div class="preset" id="presetJam">
+              <button type="button" data-jam="3">3 jam</button>
+              <button type="button" data-jam="5">½ hari</button>
+              <button type="button" data-jam="8">8 jam</button>
+              <button type="button" data-jam="13">Sehari</button>
+              <button type="button" data-jam="14">Maks 14</button>
+            </div>
+          </div>
+          <div class="grup">
+            <span class="lbl">Pilih kegiatan &amp; jendela waktunya</span>
+            <div class="pilihan gulir-gelap" id="perencanaPilihan"></div>
+          </div>
+          <div class="grup">
+            <label class="lbl" for="rencanaCatatan">Catatan pribadi</label>
+            <textarea class="medan medan-gelap" id="rencanaCatatan" placeholder="Mis. bawa tripod, rombongan 6 orang, butuh pelampung anak…"></textarea>
+          </div>
+          <div class="grup">
+            <label class="lbl" for="rencanaNama">Nama rencana</label>
+            <input class="medan medan-gelap" id="rencanaNama" type="text" placeholder="Mis. Kunjungan keluarga Sabtu">
+          </div>
+          <div style="display:flex;gap:9px;flex-wrap:wrap">
+            <button class="btn btn-utama btn-kecil" id="rencanaSimpan" type="button" style="flex:1 1 100%">💾 Simpan &amp; Buat Tabel</button>
+            <button class="btn btn-trans btn-kecil" id="rencanaSalin" type="button">📋 Salin teks</button>
+            <button class="btn btn-trans btn-kecil" id="rencanaReset" type="button">↺ Reset</button>
+          </div>
+        </div>
+        <div>
+          <div class="panel">
+            <div class="keluaran-kepala">
+              <h3>Jadwal kunjungan</h3>
+              <div class="seg seg-terang" id="segTampilan" role="group" aria-label="Bentuk tampilan jadwal">
+                <button type="button" class="aktif" data-view="linimasa">Linimasa</button>
+                <button type="button" data-view="tabel">Tabel</button>
+              </div>
+            </div>
+            <div id="rencanaKeluaran"></div>
+          </div>
+          <div class="panel" style="margin-top:18px">
+            <h3 style="margin-bottom:12px">📂 Rencana tersimpan</h3>
+            <div id="rencanaDraf"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blok blok-putih" id="studio">
+    <div class="wrap">
+      <div class="blok-kepala muncul">
+        <span class="mata">Studio Ekspor</span>
+        <h2>Tabel jadwal siap jadi gambar</h2>
+        <p>Atur <b>ukuran huruf</b>, <b>kerapatan baris</b>, dan <b>lebar dokumen</b> sampai tabel benar-benar terbaca. Zoom pratinjau untuk memeriksa pada ukuran piksel sebenarnya, lalu unduh sebagai PNG atau JPG.</p>
+      </div>
+      <div class="studio">
+        <div class="studio-panggung muncul">
+          <div class="studio-kepala">
+            <div><b>Pratinjau langsung</b><small id="studioUkuran">Menyiapkan…</small></div>
+            <span class="chip" style="background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.24);color:#FFC864">Canvas · tanpa pustaka luar</span>
+          </div>
+          <div class="studio-zoom">
+            <div class="seg" id="segZoomPratinjau" role="group" aria-label="Zoom pratinjau">
+              <button type="button" class="aktif" data-zoom="100">Pas lebar</button>
+              <button type="button" data-zoom="150">150%</button>
+              <button type="button" data-zoom="piksel">1:1 piksel</button>
+            </div>
+            <input class="geser" id="zoomPratinjau" type="range" min="40" max="220" step="5" value="100" aria-label="Zoom pratinjau">
+            <b id="zoomPratinjauNilai">100%</b>
+          </div>
+          <div class="studio-bingkai gulir-gelap">
+            <img id="studioPratinjau" alt="Pratinjau tabel jadwal kunjungan Pantai Matahari">
+          </div>
+        </div>
+
+        <aside class="studio-kendali muncul light-scroll" style="--tunda:.1s">
+          <h3>🎛️ Kendali ekspor</h3>
+          <p>Semua kendali bekerja langsung pada pratinjau.</p>
+          <div class="grup">
+            <label class="lbl" for="studioJudul">Judul dokumen</label>
+            <input class="medan" id="studioJudul" type="text" placeholder="Rencana Kunjungan Pantai Matahari">
+          </div>
+          <div class="grup">
+            <label class="lbl" for="studioHuruf">Ukuran huruf</label>
+            <input class="geser" id="studioHuruf" type="range" min="70" max="150" step="5" value="100">
+            <div class="nilai-geser"><span>70%</span><span id="nilaiHuruf">100%</span><span>150%</span></div>
+          </div>
+          <div class="grup">
+            <span class="lbl">Kerapatan baris</span>
+            <div class="seg seg-terang" id="segRapat">
+              <button type="button" data-rapat="padat">Padat</button>
+              <button type="button" class="aktif" data-rapat="normal">Normal</button>
+              <button type="button" data-rapat="lega">Lega</button>
+            </div>
+          </div>
+          <div class="grup">
+            <span class="lbl">Lebar dokumen</span>
+            <div class="seg seg-terang" id="segLebar">
+              <button type="button" data-lebar="960">960</button>
+              <button type="button" class="aktif" data-lebar="1080">1080</button>
+              <button type="button" data-lebar="1280">1280</button>
+              <button type="button" data-lebar="1600">1600</button>
+            </div>
+          </div>
+          <div class="grup">
+            <span class="lbl">Tema header</span>
+            <div class="seg seg-terang" id="segTema">
+              <button type="button" class="aktif" data-tema="fajar">🌅 Fajar</button>
+              <button type="button" data-tema="senja">🌇 Senja</button>
+              <button type="button" data-tema="siang">☀️ Siang</button>
+            </div>
+          </div>
+          <div class="grup">
+            <span class="lbl">Format berkas</span>
+            <div class="seg seg-terang" id="segFormat">
+              <button type="button" class="aktif" data-format="png">PNG</button>
+              <button type="button" data-format="jpg">JPG</button>
+            </div>
+          </div>
+          <div class="grup">
+            <span class="lbl">Skala resolusi</span>
+            <div class="seg seg-terang" id="segSkala">
+              <button type="button" data-skala="1">1×</button>
+              <button type="button" class="aktif" data-skala="2">2×</button>
+              <button type="button" data-skala="3">3×</button>
+            </div>
+          </div>
+          <div class="grup">
+            <label class="lbl" for="studioKualitas">Kualitas JPG</label>
+            <input class="geser" id="studioKualitas" type="range" min="60" max="100" step="1" value="92" disabled>
+            <div class="nilai-geser"><span>60%</span><span id="nilaiKualitas">92%</span><span>100%</span></div>
+          </div>
+          <div class="grup">
+            <span class="lbl">Isi tabel</span>
+            <label class="saklar"><input type="checkbox" id="studioKet" checked><span class="rel"></span><span>Tampilkan keterangan</span></label>
+            <label class="saklar"><input type="checkbox" id="studioBebas" checked><span class="rel"></span><span>Tampilkan waktu bebas</span></label>
+            <label class="saklar"><input type="checkbox" id="studioCatatan" checked><span class="rel"></span><span>Sertakan catatan pribadi</span></label>
+          </div>
+          <div class="studio-aksi">
+            <button class="btn btn-utama btn-kecil" id="studioUnduh" type="button" style="flex:1 1 100%"><span id="unduhLabel">⬇ Unduh PNG</span></button>
+            <button class="btn btn-laut btn-kecil" id="studioSalin" type="button">📋 Salin gambar</button>
+            <button class="btn btn-garis btn-kecil" id="studioAcak" type="button">🎲 Acak tema</button>
+            <button class="btn btn-garis btn-kecil" id="studioReset" type="button">↺ Reset</button>
+          </div>
+          <p class="studio-info">Gambar dibuat sepenuhnya di peramban Anda. Tidak ada data yang dikirim ke server.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="kaki">
+  <div class="wrap">
+    <div class="kaki-kisi">
+      <div>
+        <a class="brand" href="index.html"><img src="img/favicon.svg" alt="" width="36" height="36"><span>Lobuk<b>Bahari</b></span></a>
+        <p data-teks="profil.deskripsiPendek"></p>
+      </div>
+      <div><h4>Halaman</h4><nav aria-label="Navigasi kaki"><a href="index.html">Beranda</a><a href="tentang.html">Tentang Wisata</a><a href="galeri.html">Galeri</a><a href="lokasi.html">Lokasi</a><a href="produk.html">Produk Lokal</a><a href="kontak.html">Kontak</a></nav></div>
+      <div><h4>Catatan</h4><p style="margin-top:0">Jadwal dan gambar ekspor adalah saran pribadi, tersimpan hanya di perangkat Anda. Bukan jadwal resmi pengelola.</p></div>
+    </div>
+    <div class="kaki-bawah"><span>© <span id="tahun">2026</span> Sistem Informasi Wisata Bahari Desa Lobuk</span><span>Kecamatan Bluto · Kabupaten Sumenep</span></div>
+  </div>
+</footer>
+
+<button id="keatas" type="button" aria-label="Kembali ke atas">↑</button>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/chatbot.js"></script>
+</body>
+</html>

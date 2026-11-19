@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0E5A8A">
+<title>Lokasi &amp; Akses — Peta Satelit Pantai Matahari, Desa Lobuk</title>
+<meta name="description" content="Peta satelit Google Maps Embed API untuk Desa Lobuk, Kecamatan Bluto, Kabupaten Sumenep, beserta alamat, etape perjalanan, dan titik koordinat Pantai Matahari.">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://www.google.com">
+<link rel="preconnect" href="https://maps.google.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="lokasi">
+<a class="skip" href="#utama">Lewati ke konten utama</a>
+<div class="progres" id="progres" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="index.html"><img src="img/favicon.svg" alt="" width="36" height="36"><span>Lobuk<b>Bahari</b></span></a>
+    <button class="burger" id="burger" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    <nav class="menu" id="menu" aria-label="Navigasi utama">
+      <a href="index.html" data-nav="beranda">Beranda</a>
+      <a href="tentang.html" data-nav="tentang">Tentang Wisata</a>
+      <a href="galeri.html" data-nav="galeri">Galeri</a>
+      <a href="fasilitas.html" data-nav="fasilitas">Fasilitas &amp; Aktivitas</a>
+      <a href="lokasi.html" data-nav="lokasi">Lokasi</a>
+      <a href="produk.html" data-nav="produk">Produk Lokal</a>
+      <a href="kontak.html" data-nav="kontak">Kontak</a>
+      <button class="nav-chat" type="button" data-chat-open="true">💬 Chatbot</button>
+    </nav>
+  </div>
+</header>
+
+<main id="utama">
+  <section class="kepala">
+    <div class="kepala-art" data-scene="kepala" aria-hidden="true"></div>
+    <div class="kepala-tutup"></div>
+    <div class="kepala-isi">
+      <span class="mata">Lokasi &amp; Akses</span>
+      <h1>Peta satelit Desa Lobuk</h1>
+      <p>Peta disematkan langsung dari <b>Google Maps Embed API</b> dengan tampilan satelit. Ganti jenis tampilan, atur zoom dan tinggi peta, serta masukkan koordinat resmi pantai bila sudah diperoleh dari desa.</p>
+    </div>
+    <svg class="kepala-ombak" width="1440" height="48" viewBox="0 0 1440 48" preserveAspectRatio="none" aria-hidden="true"><path d="M0 30C160 6 320 6 480 22S800 42 960 24S1280 4 1440 18V48H0Z" fill="#EEF4F8"/></svg>
+  </section>
+
+  <section class="blok blok-dingin" style="padding-top:48px">
+    <div class="wrap">
+      <div class="panel muncul" style="margin-bottom:24px;display:flex;gap:18px;flex-wrap:wrap;align-items:center;justify-content:space-between">
+        <div>
+          <span class="lbl">Alamat administratif</span>
+          <p style="font-size:17px;font-weight:700;color:var(--laut-800)" id="lokasiAlamat"></p>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn btn-garis btn-kecil" id="salinAlamat" type="button">📋 Salin alamat</button>
+          <button class="btn btn-garis btn-kecil" id="petaSalinTautan" type="button">🔗 Salin tautan peta</button>
+          <a class="btn btn-laut btn-kecil" id="petaBuka" href="https://maps.google.com/maps?q=Desa+Lobuk+Bluto+Sumenep&t=k&z=16" target="_blank" rel="noopener">🗺️ Buka di Google Maps ↗</a>
+        </div>
+      </div>
+
+      <div class="peta-wrap">
+        <div class="peta-kartu muncul">
+          <div class="peta-bilah">
+            <div>
+              <b id="petaJudul">Desa Lobuk</b>
+              <small id="petaSub">Maps Embed API · Satelit</small>
+            </div>
+            <div class="seg" id="segJenis" role="group" aria-label="Jenis tampilan peta"></div>
+          </div>
+
+          <div class="peta-alat">
+            <div class="alat-grup alat-kunci" style="display: none;">
+              <span class="lbl">Kunci API Google Maps · Maps Embed API</span>
+              <div class="kunci-baris">
+                <input id="apiKunci" type="password" autocomplete="off" spellcheck="false" placeholder="Tempel kunci API, mis. AIzaSy…" aria-label="Kunci API Google Maps">
+                <button class="btn btn-garis btn-kecil" id="kunciLihat" type="button" aria-label="Tampilkan kunci">👁</button>
+                <button class="btn btn-laut btn-kecil" id="kunciSimpan" type="button">💾 Simpan &amp; aktifkan</button>
+                <button class="btn btn-garis btn-kecil" id="kunciHapus" type="button">Hapus</button>
+                <span id="kunciStatus"></span>
+              </div>
+              <small class="petunjuk">
+                Kunci dibuat di Google Cloud Console → aktifkan <b>Maps Embed API</b> → <i>Credentials</i> → <i>Create API key</i>, lalu batasi ke domain situs ini.
+                <a href="https://developers.google.com/maps/documentation/embed/get-api-key" target="_blank" rel="noopener">Panduan resmi ↗</a>
+                Tanpa kunci, sistem otomatis memakai sematan Google Maps biasa agar peta tetap tampil. Kunci disimpan hanya di peramban ini.
+              </small>
+            </div>
+
+            <div class="alat-grup">
+              <span class="lbl">Sumber peta</span>
+              <div class="seg seg-terang" id="segSumber" role="group" aria-label="Sumber peta">
+                <button type="button" class="aktif" data-s="api">Embed API</button>
+                <button type="button" data-s="klasik">Tanpa kunci</button>
+                <button type="button" data-s="skema">Skema</button>
+              </div>
+            </div>
+            <div class="alat-grup">
+              <span class="lbl">Zoom</span>
+              <div class="stepper stepper-terang">
+                <button type="button" id="zoomKurang" aria-label="Perkecil zoom">−</button>
+                <b id="zoomNilai">16</b>
+                <button type="button" id="zoomTambah" aria-label="Perbesar zoom">+</button>
+              </div>
+            </div>
+            <div class="alat-grup">
+              <span class="lbl">Tinggi peta</span>
+              <div class="stepper stepper-terang">
+                <button type="button" id="tinggiKurang" aria-label="Kurangi tinggi peta">−</button>
+                <b id="tinggiNilai">520 px</b>
+                <button type="button" id="tinggiTambah" aria-label="Tambah tinggi peta">+</button>
+              </div>
+            </div>
+            <div class="alat-grup tumbuh">
+              <span class="lbl">Titik koordinat resmi pantai (opsional)</span>
+              <div class="koordinat">
+                <input id="latInput" type="text" inputmode="decimal" placeholder="Lintang, mis. -7.0123" aria-label="Lintang">
+                <input id="lngInput" type="text" inputmode="decimal" placeholder="Bujur, mis. 113.8765" aria-label="Bujur">
+                <button class="btn btn-laut btn-kecil" id="titikTerap" type="button">Terapkan</button>
+                <button class="btn btn-garis btn-kecil" id="titikHapus" type="button">Hapus</button>
+              </div>
+            </div>
+            <div class="alat-grup">
+              <span class="lbl">Tampilan</span>
+              <div style="display:flex;gap:8px;flex-wrap:wrap">
+                <button class="btn btn-garis btn-kecil" id="petaPenuh" type="button">⛶ Layar penuh</button>
+                <button class="btn btn-garis btn-kecil" id="petaUlang" type="button">↻ Muat ulang</button>
+                <button class="btn btn-garis btn-kecil" id="petaSalinSemat" type="button">&lt;/&gt; Salin kode</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="peta-bingkai" id="petaBingkai">
+            <iframe id="petaFrame" title="Peta satelit Google Maps wilayah Desa Lobuk, Bluto, Sumenep" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+            <img id="petaSkema" src="img/peta-skema.svg" alt="Skema wilayah Pulau Madura bagian timur dengan penanda Kabupaten Sumenep, Kecamatan Bluto, dan Desa Lobuk" hidden>
+            <div class="peta-tirai" id="petaTirai">
+              <div><b>Memuat peta satelit Google Maps…</b><p>Perlu koneksi internet.</p></div>
+            </div>
+          </div>
+
+          <div class="peta-kaki">
+            <span class="denyut" aria-hidden="true"></span>
+            <span id="petaStatus">Menyiapkan peta</span>
+            <span class="chip" id="petaModeBadge">Maps Embed API</span>
+            <span class="chip" id="titikStatus">Memakai nama wilayah</span>
+          </div>
+        </div>
+
+        <div class="muncul" style="--tunda:.1s">
+          <span class="lbl">Pindahkan peta ke</span>
+          <div id="lokasiTitik"></div>
+          <div class="panel panel-gelap" id="lokasiDetail" style="position:static;margin-top:14px"></div>
+        </div>
+      </div>
+
+      <div class="catatan muncul" style="margin-top:22px">
+        <b>Cara kerja peta.</b> Dengan kunci API, sistem memanggil <code>maps/embed/v1/place</code> (nama wilayah) atau <code>maps/embed/v1/view</code> (koordinat resmi) dengan <code>maptype=satellite</code>. Tanpa kunci, sistem memakai sematan Google Maps biasa dengan parameter satelit <code>t=k</code>. Titik koordinat resmi Pantai Matahari belum tersedia dari mitra, sehingga peta awal memakai nama wilayah. Bila sematan tertahan jaringan atau kebijakan layanan, gunakan <b>Buka di Google Maps</b> atau <b>Skema</b>.
+      </div>
+    </div>
+  </section>
+
+  <section class="blok blok-putih">
+    <div class="wrap">
+      <div class="kisi k2" style="gap:40px;align-items:start">
+        <div class="muncul">
+          <span class="mata">Etape Perjalanan</span>
+          <h2 style="margin:12px 0 16px">Gambaran rute menuju lokasi</h2>
+          <p>Etape berikut adalah gambaran umum perjalanan lintas Madura. Rute detail, waktu tempuh, dan biaya menunggu konfirmasi resmi Pemerintah Desa Lobuk.</p>
+          <div style="margin-top:18px" id="lokasiEtape"></div>
+        </div>
+        <aside class="muncul" style="--tunda:.12s">
+          <div class="panel">
+            <h3 style="margin-bottom:12px">🎒 Persiapan praktis</h3>
+            <ul style="font-size:14px;color:var(--tinta-2)">
+              <li>Isi bahan bakar dan tarik tunai sebelum meninggalkan kota besar — ketersediaan di desa belum terdata.</li>
+              <li>Unduh peta luring; sinyal di wilayah pesisir dapat melemah.</li>
+              <li>Bawa air minum, pelindung matahari, dan alas kaki bersol kuat.</li>
+              <li>Untuk fajar, berangkat dari penginapan sekitar pukul 04.30 dan siapkan senter.</li>
+              <li>Konfirmasikan rencana rombongan kepada pengelola sebelum berangkat.</li>
+            </ul>
+          </div>
+          <div class="panel" style="margin-top:16px">
+            <h3 style="margin-bottom:10px">📌 Belum tersedia</h3>
+            <p style="font-size:13.5px;color:var(--tinta-2);margin-bottom:12px">Titik koordinat pantai, kondisi jalan terkini, waktu tempuh, tarif transportasi, dan jadwal angkutan lokal.</p>
+            <span class="lencana l-tunggu">Menunggu mitra</span>
+            <div style="margin-top:14px;display:flex;gap:9px;flex-wrap:wrap">
+              <a class="btn btn-laut btn-kecil" href="kontak.html">Siapkan pertanyaan akses</a>
+              <a class="btn btn-garis btn-kecil" href="fasilitas.html#perencana">Susun jadwal</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="kaki">
+  <div class="wrap">
+    <div class="kaki-kisi">
+      <div>
+        <a class="brand" href="index.html"><img src="img/favicon.svg" alt="" width="36" height="36"><span>Lobuk<b>Bahari</b></span></a>
+        <p data-teks="profil.deskripsiPendek"></p>
+      </div>
+      <div><h4>Halaman</h4><nav aria-label="Navigasi kaki"><a href="index.html">Beranda</a><a href="tentang.html">Tentang Wisata</a><a href="galeri.html">Galeri</a><a href="fasilitas.html">Fasilitas &amp; Aktivitas</a><a href="produk.html">Produk Lokal</a><a href="kontak.html">Kontak</a></nav></div>
+      <div><h4>Catatan</h4><p style="margin-top:0">Peta Google Maps memerlukan koneksi internet dan tunduk pada kebijakan layanan Google serta kuota kunci API Anda.</p></div>
+    </div>
+    <div class="kaki-bawah"><span>© <span id="tahun">2026</span> Sistem Informasi Wisata Bahari Desa Lobuk</span><span>Kecamatan Bluto · Kabupaten Sumenep</span></div>
+  </div>
+</footer>
+
+<button id="keatas" type="button" aria-label="Kembali ke atas">↑</button>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/chatbot.js"></script>
+</body>
+</html>

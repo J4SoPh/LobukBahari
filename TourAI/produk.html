@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0E5A8A">
+<title>Produk Lokal — Potensi Ekonomi Masyarakat Desa Lobuk</title>
+<meta name="description" content="Gambaran potensi produk lokal dan ekonomi masyarakat pesisir Desa Lobuk, Kecamatan Bluto, Kabupaten Sumenep.">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="produk">
+<a class="skip" href="#utama">Lewati ke konten utama</a>
+<div class="progres" id="progres" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="index.html"><img src="img/favicon.svg" alt="" width="36" height="36"><span>Lobuk<b>Bahari</b></span></a>
+    <button class="burger" id="burger" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    <nav class="menu" id="menu" aria-label="Navigasi utama">
+      <a href="index.html" data-nav="beranda">Beranda</a>
+      <a href="tentang.html" data-nav="tentang">Tentang Wisata</a>
+      <a href="galeri.html" data-nav="galeri">Galeri</a>
+      <a href="fasilitas.html" data-nav="fasilitas">Fasilitas &amp; Aktivitas</a>
+      <a href="lokasi.html" data-nav="lokasi">Lokasi</a>
+      <a href="produk.html" data-nav="produk">Produk Lokal</a>
+      <a href="kontak.html" data-nav="kontak">Kontak</a>
+      <button class="nav-chat" type="button" data-chat-open="true">💬 Chatbot</button>
+    </nav>
+  </div>
+</header>
+
+<main id="utama">
+  <section class="kepala">
+    <div class="kepala-art" data-scene="kepala" aria-hidden="true"></div>
+    <div class="kepala-tutup"></div>
+    <div class="kepala-isi">
+      <span class="mata">Produk Lokal</span>
+      <h1>Ekonomi yang tumbuh dari laut</h1>
+      <p>Wisata bahari tidak berdiri sendiri. Ia menggerakkan nelayan, dapur rumah tangga, dan usaha kecil warga pesisir Desa Lobuk.</p>
+    </div>
+    <svg class="kepala-ombak" width="1440" height="48" viewBox="0 0 1440 48" preserveAspectRatio="none" aria-hidden="true"><path d="M0 30C160 6 320 6 480 22S800 42 960 24S1280 4 1440 18V48H0Z" fill="#FAF6EE"/></svg>
+  </section>
+
+  <section class="blok blok-pasir" style="padding-top:48px">
+    <div class="wrap">
+      <div class="blok-kepala muncul">
+        <span class="mata">Gambaran Potensi</span>
+        <h2>Kategori produk pesisir</h2>
+        <p>Uraian berikut menggambarkan potensi umum masyarakat pesisir Madura sebagai arah promosi, bukan daftar produk terverifikasi Desa Lobuk.</p>
+      </div>
+      <div class="catatan muncul" id="catatanProduk" style="margin-bottom:24px"></div>
+      <div class="kisi k3" id="produkKisi"></div>
+    </div>
+  </section>
+
+  <section class="blok blok-gelap gelap">
+    <div class="wrap">
+      <div class="blok-kepala muncul">
+        <span class="mata">Rantai Nilai Desa</span>
+        <h2>Bagaimana kunjungan Anda berdampak</h2>
+      </div>
+      <div class="kisi k3">
+        <div class="panel muncul" style="background:rgba(255,255,255,.06);border-color:var(--garis-gelap)">
+          <div class="fikon" style="background:rgba(255,255,255,.1);border-color:var(--garis-gelap)">🎣</div>
+          <h3 style="margin:12px 0 8px;color:var(--kuning)">Dari laut ke meja</h3>
+          <p style="font-size:14px">Membeli hasil laut langsung dari nelayan memperpendek rantai jual dan menjaga harga tetap adil bagi kedua pihak.</p>
+        </div>
+        <div class="panel muncul" style="--tunda:.08s;background:rgba(255,255,255,.06);border-color:var(--garis-gelap)">
+          <div class="fikon" style="background:rgba(255,255,255,.1);border-color:var(--garis-gelap)">👩‍🍳</div>
+          <h3 style="margin:12px 0 8px;color:var(--kuning)">Dapur rumah tangga</h3>
+          <p style="font-size:14px">Olahan hasil laut umumnya dikerjakan di rumah. Setiap pembelian menghidupkan ekonomi halaman rumah, bukan pabrik.</p>
+        </div>
+        <div class="panel muncul" style="--tunda:.16s;background:rgba(255,255,255,.06);border-color:var(--garis-gelap)">
+          <div class="fikon" style="background:rgba(255,255,255,.1);border-color:var(--garis-gelap)">🏘️</div>
+          <h3 style="margin:12px 0 8px;color:var(--kuning)">Manfaat menyebar</h3>
+          <p style="font-size:14px">Parkir, warung, pemandu, dan cendera mata dikelola warga berbeda — kunjungan yang belanja di desa menyebar manfaatnya.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blok blok-dingin">
+    <div class="wrap" style="max-width:820px;text-align:center">
+      <div class="muncul">
+        <span class="mata" style="justify-content:center">Untuk Pelaku Usaha</span>
+        <h2 style="margin:12px 0 12px">Ingin produk Anda dipromosikan?</h2>
+        <p>Daftar produk resmi sedang dihimpun bersama Pemerintah Desa Lobuk. Siapkan nama produk, deskripsi singkat, foto, kisaran harga, dan kontak usaha agar dapat ditampilkan setelah diverifikasi.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:22px">
+          <a class="btn btn-laut" href="kontak.html#checklist">📋 Lihat checklist data mitra</a>
+          <button class="btn btn-garis" type="button" data-chat-open="produk lokal oleh-oleh">💬 Tanya soal produk</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="kaki">
+  <div class="wrap">
+    <div class="kaki-kisi">
+      <div>
+        <a class="brand" href="index.html"><img src="img/favicon.svg" alt="" width="36" height="36"><span>Lobuk<b>Bahari</b></span></a>
+        <p data-teks="profil.deskripsiPendek"></p>
+      </div>
+      <div><h4>Halaman</h4><nav aria-label="Navigasi kaki"><a href="index.html">Beranda</a><a href="tentang.html">Tentang Wisata</a><a href="galeri.html">Galeri</a><a href="fasilitas.html">Fasilitas &amp; Aktivitas</a><a href="lokasi.html">Lokasi</a><a href="kontak.html">Kontak</a></nav></div>
+      <div><h4>Catatan</h4><p style="margin-top:0">Tidak ada transaksi daring dalam sistem ini. Pembelian dilakukan langsung kepada pelaku usaha di desa.</p></div>
+    </div>
+    <div class="kaki-bawah"><span>© <span id="tahun">2026</span> Sistem Informasi Wisata Bahari Desa Lobuk</span><span>Kecamatan Bluto · Kabupaten Sumenep</span></div>
+  </div>
+</footer>
+
+<button id="keatas" type="button" aria-label="Kembali ke atas">↑</button>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/chatbot.js"></script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0E5A8A">
+<title>Kontak Pengelola — Wisata Bahari Desa Lobuk</title>
+<meta name="description" content="Informasi kontak pengelola Pantai Matahari dan Pemerintah Desa Lobuk, penyusun pesan, serta checklist kelengkapan data mitra.">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="kontak">
+<a class="skip" href="#utama">Lewati ke konten utama</a>
+<div class="progres" id="progres" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="index.html"><img src="img/favicon.svg" alt="" width="36" height="36"><span>Lobuk<b>Bahari</b></span></a>
+    <button class="burger" id="burger" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    <nav class="menu" id="menu" aria-label="Navigasi utama">
+      <a href="index.html" data-nav="beranda">Beranda</a>
+      <a href="tentang.html" data-nav="tentang">Tentang Wisata</a>
+      <a href="galeri.html" data-nav="galeri">Galeri</a>
+      <a href="fasilitas.html" data-nav="fasilitas">Fasilitas &amp; Aktivitas</a>
+      <a href="lokasi.html" data-nav="lokasi">Lokasi</a>
+      <a href="produk.html" data-nav="produk">Produk Lokal</a>
+      <a href="kontak.html" data-nav="kontak">Kontak</a>
+      <button class="nav-chat" type="button" data-chat-open="true">💬 Chatbot</button>
+    </nav>
+  </div>
+</header>
+
+<main id="utama">
+  <section class="kepala">
+    <div class="kepala-art" data-scene="kepala" aria-hidden="true"></div>
+    <div class="kepala-tutup"></div>
+    <div class="kepala-isi">
+      <span class="mata">Kontak</span>
+      <h1>Terhubung dengan pengelola</h1>
+      <p>Kontak resmi sedang dihimpun. Sementara itu, gunakan penyusun pesan untuk menyiapkan pertanyaan yang rapi, lalu sampaikan melalui kanal resmi desa.</p>
+    </div>
+    <svg class="kepala-ombak" width="1440" height="48" viewBox="0 0 1440 48" preserveAspectRatio="none" aria-hidden="true"><path d="M0 30C160 6 320 6 480 22S800 42 960 24S1280 4 1440 18V48H0Z" fill="#FAF6EE"/></svg>
+  </section>
+
+  <section class="blok blok-pasir" style="padding-top:48px">
+    <div class="wrap">
+      <div class="kontak-kisi">
+        <div class="muncul">
+          <span class="mata">Informasi Pengelola</span>
+          <h2 style="margin:12px 0 18px;font-size:26px">Siapa yang dapat dihubungi</h2>
+          <div class="panel" id="infoKontak"></div>
+          <div class="catatan" style="margin-top:16px" data-teks="kontak.catatan"></div>
+        </div>
+
+        <div class="panel muncul" style="--tunda:.1s">
+          <h3 style="font-size:22px;margin-bottom:6px">✍️ Penyusun pesan</h3>
+          <p style="font-size:13.5px;color:var(--tinta-2);margin-bottom:20px">Sistem tidak mengirim pesan ke server. Pesan disusun menjadi teks siap kirim yang dapat Anda salin atau unduh.</p>
+          <form id="formPesan" novalidate>
+            <div class="kisi k2" style="gap:14px">
+              <div class="grup">
+                <label class="lbl" for="pesanNama">Nama lengkap</label>
+                <input class="medan" id="pesanNama" type="text" autocomplete="name" placeholder="Nama Anda">
+                <span class="pesan-salah">Nama wajib diisi.</span>
+              </div>
+              <div class="grup">
+                <label class="lbl" for="pesanKontak">Kontak balik <span style="text-transform:none;letter-spacing:0;font-weight:400">(opsional)</span></label>
+                <input class="medan" id="pesanKontak" type="text" placeholder="Nomor atau surel">
+              </div>
+            </div>
+            <div class="grup">
+              <label class="lbl" for="pesanTopik">Topik pertanyaan</label>
+              <select class="medan" id="pesanTopik">
+                <option>Rencana kunjungan umum</option>
+                <option>Kunjungan rombongan</option>
+                <option>Kerja sama penelitian &amp; promosi</option>
+              </select>
+            </div>
+            <div class="grup">
+              <label class="lbl" for="pesanIsi">Isi pesan</label>
+              <textarea class="medan" id="pesanIsi" placeholder="Contoh: Kami rombongan 8 orang berencana berkunjung akhir pekan depan. Mohon informasi tarif, fasilitas, dan rute menuju lokasi."></textarea>
+              <span class="pesan-salah">Tulis pesan minimal 10 karakter.</span>
+            </div>
+            <button class="btn btn-utama" type="submit" style="width:100%">Susun pesan →</button>
+          </form>
+
+          <div id="hasilWrap" hidden style="margin-top:20px">
+            <label class="lbl" for="hasilPesan">Pesan siap kirim</label>
+            <textarea class="medan" id="hasilPesan" readonly style="min-height:180px;background:var(--laut-50)"></textarea>
+            <div style="display:flex;gap:9px;flex-wrap:wrap;margin-top:12px">
+              <button class="btn btn-laut btn-kecil" id="salinPesan" type="button">📋 Salin pesan</button>
+              <button class="btn btn-garis btn-kecil" id="unduhPesan" type="button">⬇ Unduh .txt</button>
+              <button class="btn btn-garis btn-kecil" id="resetPesan" type="button">↺ Kosongkan formulir</button>
+            </div>
+          </div>
+
+          <div style="margin-top:22px;padding-top:18px;border-top:1px dashed var(--garis)">
+            <h4 style="margin-bottom:12px">📂 Pesan tersusun</h4>
+            <div id="pesanDraf"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blok blok-dingin" id="checklist">
+    <div class="wrap">
+      <div class="blok-kepala muncul">
+        <span class="mata">Kelengkapan Data Mitra</span>
+        <h2>Checklist pengumpulan data</h2>
+        <p>Alat kerja tim riset untuk mencatat data yang sudah diperoleh dari mitra. Progres tersimpan di perangkat ini dan tercermin pada ringkasan di beranda.</p>
+      </div>
+      <div class="kisi k2" style="gap:28px;align-items:start">
+        <div class="muncul" id="checklistMitra"></div>
+        <aside class="panel muncul" style="--tunda:.1s;text-align:center">
+          <div class="cincin-wrap">
+            <svg class="lingkaran" width="120" height="120" viewBox="0 0 100 100" role="img" aria-label="Persentase kelengkapan data mitra">
+              <defs><linearGradient id="gUkur" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#12719F"/><stop offset="1" stop-color="#F29F3D"/></linearGradient></defs>
+              <circle class="rel" cx="50" cy="50" r="42"/>
+              <circle class="isi" id="cincinIsi" cx="50" cy="50" r="42"/>
+            </svg>
+            <div class="cincin-angka" id="cincinAngka">0%</div>
+          </div>
+          <p style="font-size:13.5px;color:var(--tinta-2)" id="checklistKet"></p>
+          <div style="display:flex;gap:9px;flex-wrap:wrap;justify-content:center;margin-top:16px">
+            <button class="btn btn-laut btn-kecil" id="checklistEkspor" type="button">⬇ Unduh checklist</button>
+            <button class="btn btn-bahaya btn-kecil" id="checklistReset" type="button">↺ Kosongkan</button>
+          </div>
+          <div class="catatan" style="margin-top:16px;text-align:left">Centang hanya setelah data resmi benar-benar diterima dari sumber yang tercantum.</div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="blok blok-putih">
+    <div class="wrap">
+      <div class="blok-kepala muncul" style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;max-width:none">
+        <div style="max-width:64ch">
+          <span class="mata">Panduan Wawancara</span>
+          <h2 style="margin:12px 0 12px">Pertanyaan untuk mitra</h2>
+          <p>Daftar pertanyaan siap pakai saat berkoordinasi dengan Pemerintah Desa Lobuk dan pengelola Pantai Matahari.</p>
+        </div>
+        <button class="btn btn-garis btn-kecil" id="salinPertanyaan" type="button">📋 Salin semua pertanyaan</button>
+      </div>
+      <div class="panel muncul" id="daftarPertanyaan"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="kaki">
+  <div class="wrap">
+    <div class="kaki-kisi">
+      <div>
+        <a class="brand" href="index.html"><img src="img/favicon.svg" alt="" width="36" height="36"><span>Lobuk<b>Bahari</b></span></a>
+        <p data-teks="profil.deskripsiPendek"></p>
+      </div>
+      <div><h4>Halaman</h4><nav aria-label="Navigasi kaki"><a href="index.html">Beranda</a><a href="tentang.html">Tentang Wisata</a><a href="galeri.html">Galeri</a><a href="fasilitas.html">Fasilitas &amp; Aktivitas</a><a href="lokasi.html">Lokasi</a><a href="produk.html">Produk Lokal</a></nav></div>
+      <div><h4>Catatan</h4><p style="margin-top:0">Seluruh data tersimpan lokal di peramban Anda. Tidak ada data pengunjung yang dikirim ke server.</p></div>
+    </div>
+    <div class="kaki-bawah"><span>© <span id="tahun">2026</span> Sistem Informasi Wisata Bahari Desa Lobuk</span><span>Kecamatan Bluto · Kabupaten Sumenep</span></div>
+  </div>
+</footer>
+
+<button id="keatas" type="button" aria-label="Kembali ke atas">↑</button>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/chatbot.js"></script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0E5A8A">
+<title>Beranda — Wisata Bahari Desa Lobuk | Pantai Matahari</title>
+<meta name="description" content="Sistem informasi promosi wisata bahari Desa Lobuk, Kecamatan Bluto, Kabupaten Sumenep. Profil desa, daya tarik Pantai Matahari, peta satelit, dan asisten tanya jawab.">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="beranda">
+<a class="skip" href="#utama">Lewati ke konten utama</a>
+<div class="progres" id="progres" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="index.html"><img src="img/favicon.svg" alt="" width="36" height="36"><span>Lobuk<b>Bahari</b></span></a>
+    <button class="burger" id="burger" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    <nav class="menu" id="menu" aria-label="Navigasi utama">
+      <a href="index.html" data-nav="beranda">Beranda</a>
+      <a href="tentang.html" data-nav="tentang">Tentang Wisata</a>
+      <a href="galeri.html" data-nav="galeri">Galeri</a>
+      <a href="fasilitas.html" data-nav="fasilitas">Fasilitas &amp; Aktivitas</a>
+      <a href="lokasi.html" data-nav="lokasi">Lokasi</a>
+      <a href="produk.html" data-nav="produk">Produk Lokal</a>
+      <a href="kontak.html" data-nav="kontak">Kontak</a>
+      <button class="nav-chat" type="button" data-chat-open="true">💬 Chatbot</button>
+    </nav>
+  </div>
+</header>
+
+<main id="utama">
+  <section class="hero">
+    <div class="hero-art" data-scene="penuh" aria-hidden="true"></div>
+    <div class="hero-tutup"></div>
+    <div class="hero-isi">
+      <span class="hero-mata tahap" style="animation-delay:.1s">Desa Lobuk · Bluto · Sumenep</span>
+      <h1 class="tahap" style="animation-delay:.24s">Pantai <em>Matahari</em></h1>
+      <p class="hero-teks tahap" style="animation-delay:.38s">Pintu informasi wisata bahari Desa Lobuk. Kenali daya tarik pesisir, lihat citra satelit lokasinya, susun jadwal kunjungan, dan tanyakan apa saja kepada asisten wisata.</p>
+      <div class="hero-aksi tahap" style="animation-delay:.52s">
+        <a class="btn btn-utama" href="tentang.html">Jelajahi daya tarik →</a>
+        <a class="btn btn-trans" href="lokasi.html">🛰️ Lihat peta satelit</a>
+      </div>
+      <div class="hero-fakta tahap" style="animation-delay:.66s">
+        <div class="fakta"><b>4</b><span>Daya tarik utama</span></div>
+        <div class="fakta"><b>8</b><span>Pilihan aktivitas</span></div>
+        <div class="fakta"><b>7</b><span>Halaman informasi</span></div>
+        <div class="fakta"><b>24/7</b><span>Asisten tanya jawab</span></div>
+      </div>
+    </div>
+    <svg class="hero-ombak" width="1440" height="64" viewBox="0 0 1440 64" preserveAspectRatio="none" aria-hidden="true"><path d="M0 38C160 8 320 8 480 32S800 60 960 34S1280 6 1440 26V64H0Z" fill="#FAF6EE"/></svg>
+  </section>
+
+  <section class="blok blok-pasir">
+    <div class="wrap">
+      <div class="kisi k2" style="gap:44px;align-items:start">
+        <div class="muncul">
+          <span class="mata">Profil Desa</span>
+          <h2 style="margin:12px 0 16px">Desa pesisir di ujung timur Madura</h2>
+          <p data-teks="profil.deskripsi"></p>
+          <div style="display:flex;gap:11px;flex-wrap:wrap;margin-top:20px">
+            <a class="btn btn-laut btn-kecil" href="lokasi.html">🛰️ Peta satelit &amp; akses</a>
+            <a class="btn btn-garis btn-kecil" href="produk.html">🧺 Produk masyarakat</a>
+          </div>
+        </div>
+        <aside class="panel muncul" style="--tunda:.12s">
+          <h3 style="margin-bottom:14px">Identitas wilayah</h3>
+          <div class="baris-kontak"><i>🏝️</i><div><b>Desa</b><span data-teks="profil.namaDesa"></span></div></div>
+          <div class="baris-kontak"><i>🗺️</i><div><b>Kecamatan</b><span data-teks="profil.kecamatan"></span></div></div>
+          <div class="baris-kontak"><i>🏛️</i><div><b>Kabupaten</b><span data-teks="profil.kabupaten"></span></div></div>
+          <div class="baris-kontak"><i>📌</i><div><b>Provinsi</b><span data-teks="profil.provinsi"></span></div></div>
+          <div class="baris-kontak"><i>🌅</i><div><b>Destinasi utama</b><span data-teks="profil.destinasiUtama"></span></div></div>
+          <div style="margin-top:14px"><span class="lencana l-siap">Terverifikasi</span></div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="blok blok-putih">
+    <div class="wrap">
+      <div class="blok-kepala muncul">
+        <span class="mata">Ringkasan Daya Tarik</span>
+        <h2>Empat alasan berkunjung</h2>
+        <p>Potensi utama Pantai Matahari yang menjadi wajah wisata bahari Desa Lobuk.</p>
+      </div>
+      <div class="kisi k4" id="ringkasanDaya"></div>
+    </div>
+  </section>
+
+  <section class="blok blok-dingin">
+    <div class="wrap">
+      <div class="kisi k2" style="gap:40px;align-items:center">
+        <div class="muncul">
+          <span class="mata">Transparansi Informasi</span>
+          <h2 style="margin:12px 0 14px">Kami tidak menebak data</h2>
+          <p>Sesuai rancangan sistem, informasi yang belum diperoleh dari Pemerintah Desa Lobuk maupun pengelola Pantai Matahari <b>tidak ditampilkan sebagai dugaan</b>. Setiap butir diberi status: terverifikasi, gambaran umum, atau menunggu mitra.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px">
+            <span class="lencana l-siap">Terverifikasi</span>
+            <span class="lencana l-umum">Gambaran umum</span>
+            <span class="lencana l-tunggu">Menunggu mitra</span>
+          </div>
+        </div>
+        <div class="panel muncul" style="--tunda:.12s" id="kesiapanRingkas"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blok blok-gelap gelap">
+    <div class="wrap" style="text-align:center;max-width:760px">
+      <div class="muncul">
+        <span class="mata" style="justify-content:center">Rencanakan Kunjungan</span>
+        <h2 style="margin:14px 0 14px">Sudah siap menuju Desa Lobuk?</h2>
+        <p>Lihat citra satelit wilayahnya, susun jadwal sesuai jendela waktu terbaik, lalu simpan tabel jadwal sebagai gambar siap bagikan.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:24px">
+          <a class="btn btn-utama" href="fasilitas.html#perencana">🧭 Susun jadwal kunjungan</a>
+          <a class="btn btn-trans" href="lokasi.html">🛰️ Buka peta satelit</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="kaki">
+  <div class="wrap">
+    <div class="kaki-kisi">
+      <div>
+        <a class="brand" href="index.html"><img src="img/favicon.svg" alt="" width="36" height="36"><span>Lobuk<b>Bahari</b></span></a>
+        <p data-teks="profil.deskripsiPendek"></p>
+      </div>
+      <div><h4>Halaman</h4><nav aria-label="Navigasi kaki"><a href="tentang.html">Tentang Wisata</a><a href="galeri.html">Galeri</a><a href="fasilitas.html">Fasilitas &amp; Aktivitas</a><a href="lokasi.html">Lokasi</a><a href="produk.html">Produk Lokal</a><a href="kontak.html">Kontak</a></nav></div>
+      <div><h4>Catatan</h4><p style="margin-top:0">Prototipe penelitian mengikuti System Design Document v1.0 (metode Waterfall). Informasi berstatus <b>menunggu mitra</b> akan dilengkapi setelah data resmi diperoleh.</p><button class="btn btn-utama btn-kecil" type="button" data-chat-open="true" style="margin-top:12px">💬 Tanya asisten wisata</button></div>
+    </div>
+    <div class="kaki-bawah"><span>© <span id="tahun">2026</span> Sistem Informasi Wisata Bahari Desa Lobuk</span><span>Kecamatan Bluto · Kabupaten Sumenep · Jawa Timur</span></div>
+  </div>
+</footer>
+
+<button id="keatas" type="button" aria-label="Kembali ke atas">↑</button>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/chatbot.js"></script>
+</body>
+</html>
